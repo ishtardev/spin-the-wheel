@@ -134,12 +134,13 @@
                 ctx.fillText(slices[i], radius - 20, 10);
                 ctx.restore();
             }
-            // Draw pointer
+            // Draw pointer (triangle pointing down into the wheel)
             ctx.save();
             ctx.beginPath();
-            ctx.moveTo(centerX, centerY - radius - 10);
-            ctx.lineTo(centerX - 20, centerY - radius + 20);
-            ctx.lineTo(centerX + 20, centerY - radius + 20);
+            // base sits outside the top of the wheel, apex points down toward the center
+            ctx.moveTo(centerX - 20, centerY - radius - 10);
+            ctx.lineTo(centerX + 20, centerY - radius - 10);
+            ctx.lineTo(centerX, centerY - radius + 20);
             ctx.closePath();
             ctx.fillStyle = '#e53935';
             ctx.fill();
